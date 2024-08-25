@@ -1,12 +1,33 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener("DOMContentLoaded", function () {
+  const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  const output = document.querySelector("#output");
 
-    document.querySelector("form").onsubmit = function (){
-        const note =document.querySelector('#textbar').value;
-        let a=document.createElement("li");
-    a.innerHTML=note;
-    document.querySelector("#notelist").append(a);
-    
+  storedNotes.forEach((note) => {
+    let pre = document.createElement("pre");
+    pre.innerHTML = note;
+    output.append(pre);
+  });
+
+  document.querySelector("#add-note").onclick = function () {
+    const note = document.querySelector("#textbox").value;
+
+    if (note.trim() === "") return false;
+
+    let pre = document.createElement("pre");
+    pre.innerHTML = note;
+    output.append(pre);
+
+    storedNotes.push(note);
+    localStorage.setItem("notes", JSON.stringify(storedNotes));
+
+    document.querySelector("#textbox").value = "";
+
     return false;
-}
-    
-})
+  };
+
+  document.querySelector("#clear-notes").onclick = function () {
+    localStorage.removeItem("notes");
+    output.innerHTML = "";
+    return false;
+  };
+});
