@@ -24,7 +24,6 @@ body {
   margin-bottom: 5px;
 }
 
-
 h1 img {
   width: 40px;
 }
@@ -55,6 +54,7 @@ pre {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .notes-container pre {
@@ -66,4 +66,11 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   box-sizing: border-box;
+}
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: white;
 }
