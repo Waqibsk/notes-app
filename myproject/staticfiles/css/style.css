@@ -1,0 +1,232 @@
+/* Reset some basic styles */
+body, h1, textarea, button {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
+
+/* Body styling */
+body {
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Header styling */
+header {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 img {
+  height: 40px;
+  margin-right: 15px;
+}
+
+/* Main content area */
+main {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 1000px; /* Adjusted max-width for better layout */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Textarea styling */
+#textbox {
+  width: 100%;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  resize: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+#textbox:focus {
+  border-color: #0071e3;
+  outline: none;
+}
+
+/* Button group styling */
+#add-note {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Button styling */
+button, input[type="submit"] {
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #005bb5;
+}
+
+button#clear-notes {
+  background-color: #d11a2a;
+}
+
+button#clear-notes:hover {
+  background-color: #b31422;
+}
+
+button#theme-toggle {
+  background-color: #333;
+}
+
+button#theme-toggle:hover {
+  background-color: #1d1d1f;
+}
+
+input#create {
+  background-color: #0071e3; /* Matching button color */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input#create:hover {
+  background-color: #005bb5; /* Matching button hover color */
+}
+
+/* Notes container for dynamic grid layout */
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust minmax value to control note size */
+  gap: 15px; /* Space between notes */
+  margin-top: 20px;
+}
+
+/* NOTE CONTAINER STYLING */
+.note-container {
+  background-color: #f0f0f5;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.note-container pre {
+  font-size: 1.25em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.delete-button {
+  background: transparent;
+  border: none;
+  color: #d11a2a;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s ease-in-out;
+}
+
+.delete-button:hover {
+  color: #b31422;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+}
+
+body.dark-mode main {
+  background-color: #333;
+  color: #f5f5f7;
+}
+
+body.dark-mode #textbox {
+  background-color: #444;
+  border-color: #0071e3;
+  color: #f5f5f7;
+}
+
+body.dark-mode .note-container {
+  background-color: #444;
+}
+
+body.dark-mode button, body.dark-mode input[type="submit"] {
+  background-color: #444;
+  color: #f5f5f7;
+}
+
+body.dark-mode button:hover, body.dark-mode input[type="submit"]:hover {
+  background-color: #555;
+}
+ 
+body.dark-mode button#clear-notes {
+  background-color: #d11a2a;
+}
+
+body.dark-mode button#clear-notes:hover {
+  background-color: #b31422;
+}
+h1 {
+  font-size: 2em; /* Base size */
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 480px) {
+  main {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  #textbox {
+    font-size: 0.9em;
+  }
+}
+button, input[type="submit"] {
+  padding: 12px 24px; /* LARGER PADDING FOR BETTER TOUCH AREA*/
+}
+body.dark-mode h1 {
+  color: #f5f5f7;
+}
